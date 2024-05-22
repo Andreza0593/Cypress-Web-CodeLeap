@@ -3,12 +3,14 @@ import homeScreen from '../support/pageObjects/homeScreen.pageObjects'
 describe('homeScreen', () => {
 
   
-  it('openWebsite', () => {
+  it('validateHomeScreen', () => {
     cy.visit('https://codeleap-frontend-test.netlify.app/')
-    homeScreen.welcomeCodeLeap()
-    homeScreen.yourUsername()
-    homeScreen.inputUsername()
     
+    homeScreen.validateWelcomeCodeLeap("Welcome to CodeLeap network!")
+    homeScreen.validateMessageUsername("Please enter your username")
+    homeScreen.validateUsername("Ana Maria")
+    homeScreen.clickButtonEnter()
     
   })
+
 })

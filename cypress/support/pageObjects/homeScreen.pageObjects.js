@@ -2,18 +2,23 @@ const elem = require('../elements/homeScreen.elements').ELEMENTS
 
 class homeScreen{
 
-    welcomeCodeLeap(){
-        cy.get('h1').should('contain.text', 'Welcome to CodeLeap network!')
+    validateWelcomeCodeLeap(text){
+        cy.xpath(elem.xpathWelcome).should('contain', text)
     }    
 
-    yourUsername(){
-        cy.get('p').should('contain.text', 'Please enter your username')
-    }    
+    validateMessageUsername(text){
+        cy.xpath(elem.xpathMessageUsername).should('contain', text)
+    }     
 
-    inputUsername(){
-        cy.get(elem.inputToDo).type("Ana Maria").type('{ENTER}')
+    validateUsername(name){
+        cy.xpath(elem.xpathUsername).type(name)
+    } 
+    
+    clickButtonEnter(){
+        cy.xpath(elem.xpathClickButtonEnter).click()
     }
     
 }
 
 export default new homeScreen();
+
