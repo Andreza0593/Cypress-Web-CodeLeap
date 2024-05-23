@@ -1,34 +1,42 @@
 import notesScreen from '../support/pageObjects/notesScreen.pageObjects'
 import homeScreen from '../support/pageObjects/homeScreen.pageObjects'
-import { before } from 'mocha'
+import { before, it } from 'mocha'
 
 describe('notesScreen', () => {
   
-  /*before('Access home screen', () => {
-
-    cy.visit('https://codeleap-frontend-test.netlify.app/')
-  })
-
-  it('Login home screen', () => {
-
-    homeScreen.validateUsername("Ana Maria")
-    homeScreen.clickButtonEnter()
-
-  })*/
-
-  it('validateContentScreen', () => {
+  beforeEach('preCondicionLogin', () => {
 
     cy.visit('https://codeleap-frontend-test.netlify.app/')
     homeScreen.validateUsername("Walmir Palma")
     homeScreen.clickButtonEnter()
-
-    notesScreen.validateMessageCodeLeapNetwork("CodeLeap Network")
-    notesScreen.validateQuestionMessage("What's on your mind?")
-    notesScreen.validateMessageTitle("Title")
-    notesScreen.validateTitle("Caminhos")
-    notesScreen.validateMessageContent("Content")
-    notesScreen.validateContent("Sonhos pequenos não criam vontade de levantar mais cedo da cama para fazer um sacrifício.")
-    notesScreen.validateClickButtonCreate()
-    
   })
+
+  it('validateMessageCodeLeapNetwork', () => {
+    notesScreen.validateMessageCodeLeapNetwork("CodeLeap Network")
+  })
+
+  it('validateQuestionMessage', () => {
+    notesScreen.validateQuestionMessage("What's on your mind?")
+  })
+
+  it('validateMessageTitle', () => {
+    notesScreen.validateMessageTitle("Title")
+  })
+
+  it('validateInputTitle', () => {
+    notesScreen.validateInputTitle("Casa")
+  })
+
+  it('validateMessageContent', () => {
+    notesScreen.validateMessageContent("Content")
+  })
+
+  it('validateInputContent', () => {
+    notesScreen.validateInputContent(" pequenos não criam vontade de levantar mais cedo da cama para fazer um sacrifício.")
+  })
+
+  it('validateClickButtonCreate', () => {
+    notesScreen.validateClickButtonCreate()
+  })
+
 })

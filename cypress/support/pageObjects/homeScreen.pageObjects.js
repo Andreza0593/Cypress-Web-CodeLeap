@@ -10,7 +10,7 @@ class homeScreen{
         cy.xpath(elem.xpathMessageUsername).should('contain', text)
     }     
 
-    validateUsername(name){
+    validateInputUsername(name){
         cy.xpath(elem.xpathUsername).type(name)
     } 
     

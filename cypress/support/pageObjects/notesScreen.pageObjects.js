@@ -14,7 +14,7 @@ class notesScreen{
         cy.xpath(elem.xpathMessageTitle).should('contain', text)
     }
 
-    validateTitle(name){
+    validateInputTitle(name){
         cy.xpath(elem.xpathTitle).type(name)
     }
 
@@ -22,7 +22,7 @@ class notesScreen{
         cy.xpath(elem.xpathMessageContent).should('contain', text)
     }
 
-    validateContent(name){
+    validateInputContent(name){
         cy.xpath(elem.xpathContent).type(name)
     }
 
